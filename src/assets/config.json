@@ -1,0 +1,5 @@
+{
+    "baseUrl": "http://13.124.21.111/api",
+    "devUrl": "localhost:3000",
+    "tokenId": "loggedInUser"
+}

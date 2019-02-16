@@ -1,0 +1,56 @@
+<div class="container main">
+  <div class="row justify-content-center">
+
+    <div class="col-9">
+      <div class="card">
+        <div class="card-body" *ngIf="!isChecked">
+          <h5 class="card-title" style="margin: 35px 0px 7px 0; font-size: 20pt; font-weight: 600">브랜드 스타일</h5>
+          <p class="card-text">브랜드의 메인 스타일을 알려주세요.<span>(가장 대표적인 순으로 선택)</span></p>
+
+          <div class="container style-list-container">
+            <div class="row justify-content-center img-row">
+              <div class="col-2 img-grid" *ngFor="let style of styles">
+                <div (click)="selectStyle(style)">
+                  <img [src]="style.imgUrl" [alt]="style.title" width="100">
+                  <p class="img-title">{{style.title}}</p>
+                  <div *ngIf="style.selected" class="img-shade">
+                    <img src="assets/img/styles/Icon-Checked.png" width="100" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-between">
+              <div class="col-auto">
+                <p>확고한 스타일 = 매니아층 형성</p>
+              </div>
+              <div class="col-auto">
+                <p>다양한 스타일 = 다수 고객층 형성</p>
+              </div>
+            </div>
+
+            <h4>브랜드 스타일</h4>
+
+            <div class="row styles-list">
+              <div class="col-auto selected-style" *ngFor="let selected of selectedStyles;let i = index">
+                <p id="selected-title">{{i+1}}. {{selected}}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-3">
+                <button type="button" (click)="goback()" class="btn btn-primary btn-block">이전</button>
+              </div>
+              <div class="col-3">
+                <button type="button" (click)="gotoNext()" class="btn btn-primary btn-block">다음</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

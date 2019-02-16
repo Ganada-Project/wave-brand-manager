@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body" *ngIf="!isChecked">
+          <h5 class="card-title" style="margin: 35px 0px 7px 0; font-size: 20pt; font-weight: 600">브랜드 계정 생성</h5>
+          <p class="card-text">휴대전화 번호를 입력해 주세요.</p>
+          <input type="text" [(ngModel)]="phoneNumber" class="form-control" id="phoneNum" name="phoneNum"
+            placeholder="휴대전화 번호를 입력해주세요.">
+          <p>해당절차를 완료시, Wave의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다.</p>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-4">
+                <button type="button" (click)="smsCheck()" class="btn btn-primary btn-block">인증</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body" *ngIf="isChecked">
+          <h5 class="card-title" style="margin: 35px 0px 7px 0; font-size: 20pt; font-weight: 600">브랜드 계정 생성</h5>
+          <p class="card-text">휴대전화 번호로 수신받은 인증번호를 입력해주세요.</p>
+          <input type="text" [(ngModel)]="verificationCode" class="form-control" id="phoneNum" name="phoneNum"
+            placeholder="인증번호">
+          <a>인증번호가 안와요.</a>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-4">
+                <button type="button" (click)="certification()" class="btn btn-primary btn-block">인증완료</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

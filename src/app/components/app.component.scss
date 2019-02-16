@@ -1,0 +1,19 @@
+@import "../../variables.scss";
+
+nav {
+    background: none;
+    margin: auto;
+    width: $main-page-width;
+    #main-logo {
+        height: 2.3rem;
+    }
+
+    a:link {color: black;}      /* unvisited link */
+    a:visited {color: black;}   /* visited link */
+    a:hover {color: black;}     /* mouse over link */
+    a:active {color: black;}    /* selected link */
+
+    .brand-login-btn {
+        font-weight: 600;
+    }
+}

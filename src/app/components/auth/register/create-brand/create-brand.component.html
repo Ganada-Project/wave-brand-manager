@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body" *ngIf="!isChecked">
+          <h5 class="card-title" style="margin: 35px 0px 7px 0; font-size: 20pt; font-weight: 600">브랜드 계정 생성</h5>
+          <p class="card-text">브랜드의 이름을 알려주세요.</p>
+          <p class="card-text">모든 유저는 이름으로 기억해요.</p>
+          <input type="text" [(ngModel)]="brand.name" class="form-control" id="brandName" name="brandName"
+            placeholder="브랜드명 (대소문자 구분, 띄어쓰기 가능)">
+          <input type="text" [(ngModel)]="brand.corporateRegNum" class="form-control" id="brandReg" name="brandReg"
+          placeholder="사업자 등록번호">
+          <p>통신 판매업 신고 여부</p>
+          <input type="radio" id="regTrue" value="1" [(ngModel)]="telemarketed">
+          <label for="regTrue">신고함</label>
+          <input type="radio" id="regFalse" value="0" [(ngModel)]="telemarketed">
+          <label for="regTrue">신고안합</label>
+          <input type="text" [(ngModel)]="telemarketingNumber" class="form-control" id="telemarketing" name="telemarketing"
+          placeholder="통신판매신고 번호">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-4">
+                <button type="button" (click)="gotoDetails()" class="btn btn-primary btn-block">디테일 설정</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

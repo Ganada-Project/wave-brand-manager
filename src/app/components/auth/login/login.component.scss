@@ -1,0 +1,15 @@
+@import "../../../../variables.scss";
+
+.main-login-page {
+    width: $main-page-width;
+    margin: auto;
+}
+
+#login-btn {
+    border-radius: 20px;
+    height: 40px;
+    width: 142px;
+    font-size: 13pt;
+    background-color: rgb(220, 103, 112);
+    border-color: rgb(220, 103, 112);
+}

@@ -1,0 +1,26 @@
+@import "../../../variables.scss";
+
+.home-main-panel {
+    width: $main-page-width;
+    .row {
+        margin-top: 80px;
+    }
+
+    .text-col {
+        margin-top: 80px;
+
+        a:link {color: rgb(226, 139, 153);}
+        a:visited {color: rgb(226, 139, 153);}   /* visited link */
+        a:hover {color: rgb(226, 139, 153); text-decoration: none;}     /* mouse over link */
+        a:active {color: rgb(226, 139, 153);}
+        
+        
+        #sub-text {
+            margin-top: 80px;
+        }
+    }
+
+    .img-col {
+        text-align: center;
+    }
+}

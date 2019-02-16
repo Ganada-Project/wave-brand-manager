@@ -8,10 +8,13 @@ import { Title } from '@angular/platform-browser';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private title: Title) { }
+  constructor(private title: Title) {
+
+  }
 
   ngOnInit() {
     this.title.setTitle('register');
+    
   }
 
 }
