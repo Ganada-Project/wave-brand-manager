@@ -1,0 +1,38 @@
+<div class="container main">
+  <div class="row justify-content-center">
+    {{diagnostic}}
+
+    <div class="col-9">
+      <div class="card">
+        <div class="card-body" *ngIf="!isChecked">
+          <h5 class="card-title" style="margin: 35px 0px 7px 0; font-size: 20pt; font-weight: 600">브랜드 꾸미기</h5>
+          <p class="card-text">프로필 사진 하나로 브랜드의 느낌을 심을 수 있어요.</p>
+
+          <div class="container brand-login-details">
+            <div class="row">
+              <div class="col-auto">
+                <p>미리보기</p>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-auto">
+                <img [src]="" height="100">
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-3">
+                <button type="button" (click)="goback()" class="btn btn-primary btn-block">이전</button>
+              </div>
+              <div class="col-3">
+                <button type="button" (click)="register()" class="btn btn-primary btn-block">다음</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

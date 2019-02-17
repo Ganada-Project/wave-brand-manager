@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-brand',
@@ -9,13 +9,12 @@ import { Router } from '@angular/router';
 export class CreateBrandComponent implements OnInit {
   public telemarketed: boolean = false;
   public telemarketingNumber: string;
-  public brand: any;
+  public brand = {};
 
-  constructor(private router: Router) { 
-    this.brand = {
-      name: "",
-      corporateRegNum: ""
-    };
+  constructor(private router: Router, private route: ActivatedRoute) {
+    route.queryParams.subscribe(params => {
+      this.brand['phone'] = params['phone'];
+    });
   }
 
   ngOnInit() {
@@ -24,8 +23,9 @@ export class CreateBrandComponent implements OnInit {
   gotoDetails() {
     if (this.telemarketed) {
       this.brand['telemarketing'] = this.telemarketingNumber;
+      this.brand['is_online_market'] = this.telemarketed;
     }
-    this.router.navigate(['register/brandDetails'], {queryParams: this.brand});
+    this.router.navigate(['register/brandDetails'], { skipLocationChange: true, queryParams: this.brand });
   }
 
 }

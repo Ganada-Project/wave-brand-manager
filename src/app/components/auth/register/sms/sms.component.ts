@@ -22,13 +22,13 @@ export class SmsComponent implements OnInit {
 
   smsCheck() {
     this.isChecked = !this.isChecked;
-    // this.auth.phoneVerification(this.phoneNumber).subscribe(data => {
-    //   console.log(data);
-    // }, err => console.error(err));
+    this.auth.phoneVerification(this.phoneNumber).subscribe(data => {
+      console.log(data);
+    }, err => console.error(err));
   }
 
   certification() {
-    this.router.navigateByUrl('register/createBrand');
+    this.router.navigate(['register/createBrand'], {skipLocationChange: true, queryParams: {phone: this.phoneNumber}});
   }
 
 }

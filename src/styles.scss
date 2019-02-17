@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "./variables.scss";
+
+.card {
+    border-radius: 25px;
+    border-color: $main-color;
+}
+
+.form-control:focus {
+    border: 1px solid $main-color;
+    box-shadow: none;
+}

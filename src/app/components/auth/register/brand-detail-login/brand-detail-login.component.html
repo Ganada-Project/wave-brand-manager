@@ -1,3 +1,47 @@
-<p>
-  brand-detail-login works!
-</p>
+<div class="container main">
+  <div class="row justify-content-center">
+    {{diagnostic}}
+
+    <div class="col-9">
+      <div class="card">
+        <div class="card-body" *ngIf="!isChecked">
+          <h5 class="card-title" style="margin: 35px 0px 7px 0; font-size: 20pt; font-weight: 600">브랜드 계정 로그인 정보</h5>
+          <p class="card-text">앞으로 로그인에 필요한 정보들을 알려주세요.</p>
+
+          <div class="container brand-login-details">
+            <div class="row">
+              <div class="col-6 login-details">
+                  <div class="form-group">
+                    <label for="brandInputEmail">이메일 (로그인 시 사용가능)</label>
+                    <input type="email" class="form-control" id="brandInputEmail" placeholder="이메일 주소" [(ngModel)]="brand.email">
+                  </div>
+                  <div class="form-group">
+                    <label for="brandInputPassword">비밀번호 (10자 이내)</label>
+                    <input type="password" class="form-control" id="brandInputPassword" placeholder="비밀번호" [(ngModel)]="brand.password">
+                  </div>
+                  <div class="form-group">
+                    <label for="passwordCheck">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="passwordCheck" placeholder="비밀번호 재입력">
+                  </div>
+              </div>
+              <div class="col-6 marketing-accept">
+                <h4>웨이브의 마케팅 메시지를 해당 이메일로 받고 싶습니다. 설정에서 추후 변경할 수 있습니다.</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-3">
+                <button type="button" (click)="goback()" class="btn btn-primary btn-block">이전</button>
+              </div>
+              <div class="col-3">
+                <button type="button" (click)="gotoNext()" class="btn btn-primary btn-block">다음</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,8 @@ import { SmsComponent } from './components/auth/register/sms/sms.component';
 import { CreateBrandComponent } from './components/auth/register/create-brand/create-brand.component';
 import { BrandDetailsComponent } from './components/auth/register/brand-details/brand-details.component';
 import { BrandDetailLoginComponent } from './components/auth/register/brand-detail-login/brand-detail-login.component';
+import { RoutingState } from './routingState';
+import { BrandDetailImageComponent } from './components/auth/register/brand-detail-image/brand-detail-image.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { BrandDetailLoginComponent } from './components/auth/register/brand-deta
     SmsComponent,
     CreateBrandComponent,
     BrandDetailsComponent,
-    BrandDetailLoginComponent
+    BrandDetailLoginComponent,
+    BrandDetailImageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { BrandDetailLoginComponent } from './components/auth/register/brand-deta
     HttpClientModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [RoutingState],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

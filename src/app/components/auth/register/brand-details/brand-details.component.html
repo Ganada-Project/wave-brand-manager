@@ -33,7 +33,7 @@
 
             <div class="row styles-list">
               <div class="col-auto selected-style" *ngFor="let selected of selectedStyles;let i = index">
-                <p id="selected-title">{{i+1}}. {{selected}}</p>
+                <p id="selected-title">{{i+1}}. {{styles[selected - 1].title}}</p>
               </div>
             </div>
 
