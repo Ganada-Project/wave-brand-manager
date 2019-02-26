@@ -1,24 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { trigger } from '@angular/animations';
+import { QueriesService } from 'src/app/services/queries.service';
 
 @Component({
   selector: 'app-brand-detail-login',
   templateUrl: './brand-detail-login.component.html',
-  styleUrls: ['./brand-detail-login.component.scss']
+  styleUrls: ['./brand-detail-login.component.scss'],
+  animations: [],
 })
 export class BrandDetailLoginComponent implements OnInit {
   public brand = {};
+  public checked = true;
 
-  constructor(private router: Router, private route: ActivatedRoute) { 
-    this.route.queryParams.subscribe(params => {
-      this.brand['brand_name'] = params['name'];
-      this.brand['business_number'] = params['corporateRegNum'];
-      this.brand['styles'] = params['selectedStyles'];
-      this.brand['online_number'] = params['telemarketing'];
-      this.brand['is_online_market'] = params['is_online_market'];
-      this.brand['phone'] = params['phone'];
-      this.brand['marketing'] = true;
-    });
+  constructor(private router: Router, private queries: QueriesService, private route: ActivatedRoute, private location: Location) {
+    this.brand['marketing'] = true;
   }
 
   ngOnInit() {
@@ -26,7 +23,12 @@ export class BrandDetailLoginComponent implements OnInit {
 
   get diagnostic() { return JSON.stringify(this.brand); }
 
+  goBack() {
+    this.location.back();
+  }
+
   gotoNext() {
-    this.router.navigate(['/register/brandImage'], { skipLocationChange: true, queryParams: this.brand });
+    this.queries.saveQuery(this.brand);
+    this.router.navigate(['/register/brandImage']);
   }
 }

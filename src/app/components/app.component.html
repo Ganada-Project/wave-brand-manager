@@ -1,11 +1,10 @@
-<nav *ngIf="!authService.isLoggedIn()" class="navbar navbar-light justify-content-between">
+<nav class="navbar navbar-light justify-content-between">
   <a [routerLink]="['/']" class="navbar-brand"><img src="assets/img/main_logo.png" alt="wav" id="main-logo"></a>
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	<li class="nav-item active">
-		
 	</li>
   </ul>
-  <a *ngIf="!onRegister" class="nav-link brand-login-btn" [routerLink]="['/signIn']">브랜드 계정 로그인</a>
+  <a *ngIf="!queries.registering" class="nav-link brand-login-btn" [routerLink]="['/signIn']">브랜드 계정 로그인</a>
 </nav>
 
 <router-outlet></router-outlet>

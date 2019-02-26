@@ -1,7 +1,5 @@
 <div class="container main">
   <div class="row justify-content-center">
-    {{diagnostic}}
-
     <div class="col-9">
       <div class="card">
         <div class="card-body" *ngIf="!isChecked">
@@ -24,7 +22,7 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-3">
-                <button type="button" (click)="goback()" class="btn btn-primary btn-block">이전</button>
+                <button type="button" (click)="goBack()" class="btn btn-primary btn-block">이전</button>
               </div>
               <div class="col-3">
                 <button type="button" (click)="register()" class="btn btn-primary btn-block">다음</button>

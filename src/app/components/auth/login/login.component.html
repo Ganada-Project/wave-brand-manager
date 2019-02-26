@@ -7,6 +7,6 @@
       <input type="password" class="form-control" id="inputPassword" name="inputPassword" [(ngModel)]="User.password" placeholder="비밀번호">
     </div>
     <button id="login-btn" type="submit" (click)="login()" class="btn btn-primary">로그인</button>
-    <button routerLink="/register/sms" routerLinkActive="active">계정 생성</button>
+    <button routerLink="/register/sms" routerLinkActive="active" (click)="onRegister()">계정 생성</button>
   </form>
 </div>

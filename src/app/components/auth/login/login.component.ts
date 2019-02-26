@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from '../../../../environments/environment';
+import { QueriesService } from 'src/app/services/queries.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   public readonly env = environment;
   @Output() entered = new EventEmitter<Boolean>();
 
-  constructor(private title: Title, private auth: AuthService) { 
+  constructor(private title: Title, private auth: AuthService, private queries: QueriesService) { 
     this.User = {
       email: '',
       password: ''
@@ -33,6 +34,10 @@ export class LoginComponent implements OnInit {
     }, err => {
       console.error(err);
     });
+  }
+
+  onRegister() {
+    this.queries.isRegister();
   }
 
 

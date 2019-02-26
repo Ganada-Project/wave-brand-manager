@@ -19,7 +19,7 @@ const routes: Routes = [
     { path: 'brandLogin', component: BrandDetailLoginComponent },
     { path: 'brandImage', component: BrandDetailImageComponent }
   ] },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, },
   { path: 'main', component: MainComponent, canActivate: [AuthGuard] }
 ];
 

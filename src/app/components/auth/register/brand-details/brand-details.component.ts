@@ -3,27 +3,34 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { RoutingState } from 'src/app/routingState';
+import { trigger } from '@angular/animations';
+import { QueriesService } from 'src/app/services/queries.service';
 
 @Component({
   selector: 'app-brand-details',
   templateUrl: './brand-details.component.html',
-  styleUrls: ['./brand-details.component.scss']
+  styleUrls: ['./brand-details.component.scss'],
+  animations: [
+    trigger('clickImage', [
+      
+    ])
+  ]
 })
 export class BrandDetailsComponent implements OnInit {
-  public brand: LoseObject = {};
+  public brand = {};
   public styles: any;
   public selectedStyles = [];
   previousRoute: string;
 
-  constructor(private router: Router, private route: ActivatedRoute, private routingState: RoutingState) {
+  constructor(private router: Router, private queries: QueriesService, private route: ActivatedRoute, private routingState: RoutingState, private location: Location) {
     // this.brand = params.get('brand');
-    this.route.queryParams.subscribe(params => {
-      this.brand['phone'] = params['phone'];
-      this.brand['name'] = params['name'];
-      this.brand['corporateRegNum'] = params['corporateRegNum'];
-      this.brand['telemarketing'] = params['telemarketing'];
-      this.brand['is_online_market'] = params['is_online_market'];
-    });
+    // this.route.queryParams.subscribe(params => {
+    //   this.brand['phone'] = params['phone'];
+    //   this.brand['name'] = params['name'];
+    //   this.brand['corporateRegNum'] = params['corporateRegNum'];
+    //   this.brand['telemarketing'] = params['telemarketing'];
+    //   this.brand['is_online_market'] = params['is_online_market'];
+    // });
 
     this.styles = [
       {
@@ -101,7 +108,6 @@ export class BrandDetailsComponent implements OnInit {
     ]
   }
   ngOnInit() {
-    console.log(this.brand);
     this.previousRoute = this.routingState.getPreviousUrl();
   }
 
@@ -119,18 +125,14 @@ export class BrandDetailsComponent implements OnInit {
   }
 
   goBack() {
-    
+    this.location.back();
   }
 
   gotoNext() {
     // this.brand.selectedStyles = this.selectedStyles;
     this.brand['selectedStyles'] = this.selectedStyles;
-    console.log(this.brand);
-    this.router.navigate(['register/brandLogin'], { skipLocationChange: true, queryParams: this.brand });
+    this.queries.saveQuery(this.brand);
+    this.router.navigate(['register/brandLogin']);
   }
 
-}
-
-interface LoseObject {
-  [key: string]: any   
 }
