@@ -26,6 +26,7 @@ export class BrandDetailImageComponent implements OnInit {
   register() {
     this.auth.signUp(this.brand).subscribe(res => {
       console.log(res);
+      this.router.navigate(['/main']);
     })
   }
 }

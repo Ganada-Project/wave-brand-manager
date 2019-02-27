@@ -8,6 +8,8 @@ import { QueriesService } from '../services/queries.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  public loggedIn: boolean = false;
   
   constructor(public authService: AuthService, public queries: QueriesService) { }
 

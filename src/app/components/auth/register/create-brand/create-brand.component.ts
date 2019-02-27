@@ -18,7 +18,7 @@ export class CreateBrandComponent implements OnInit {
   }
 
   gotoDetails() {
-    this.brand['telemarketing'] = this.telemarketingNumber;
+    this.brand['online_number'] = this.telemarketingNumber;
     this.brand['is_online_market'] = this.telemarketed;
 
     this.queries.saveQuery(this.brand);

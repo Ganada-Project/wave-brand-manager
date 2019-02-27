@@ -22,8 +22,8 @@
           <h5 class="card-title" style="margin: 35px 0px 7px 0; font-size: 20pt; font-weight: 600">브랜드 계정 생성</h5>
           <p class="card-text">휴대전화 번호로 수신받은 인증번호를 입력해주세요.</p>
           <input type="text" [(ngModel)]="verificationCode" class="form-control" id="phoneNum" name="phoneNum"
-            placeholder="인증번호">
-          <a>인증번호가 안와요.</a>
+            placeholder="{{timeLeft}}초 안에 입력해주세요.">
+          <a *ngIf="resend" (click)="resendSMS()">인증번호 재전송</a>
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-4">
@@ -33,6 +33,25 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">인증 실패</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>인증번호를 다시 확인해주세요.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
       </div>
     </div>
   </div>

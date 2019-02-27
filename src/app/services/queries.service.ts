@@ -15,7 +15,7 @@ export class QueriesService {
     for(let i = 0 ; i < Object.keys(values).length; i++) {
       this.brandData[Object.keys(values)[i]] = Object.values(values)[i];
     }
-    console.log(this.brandData)
+    console.log(this.brandData);
   }
 
   getQuery() {

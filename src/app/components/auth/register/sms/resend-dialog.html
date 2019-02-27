@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>다시 보낼까요?</h1>
+<div mat-dialog-content>
+  <p>입력하신 번호로 재전송 합니다.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">취소</button>
+  <button mat-button [mat-dialog-close]="onOkClick()" cdkFocusInitial>확인</button>
+</div>

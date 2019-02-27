@@ -130,7 +130,7 @@ export class BrandDetailsComponent implements OnInit {
 
   gotoNext() {
     // this.brand.selectedStyles = this.selectedStyles;
-    this.brand['selectedStyles'] = this.selectedStyles;
+    this.brand['styles'] = this.selectedStyles;
     this.queries.saveQuery(this.brand);
     this.router.navigate(['register/brandLogin']);
   }
