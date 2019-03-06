@@ -23,6 +23,10 @@ export class AuthService {
     console.log(this.apiUrl);
   }
 
+  getToken() {
+    return localStorage.getItem(this.tokenId)['token'];
+  }
+
   isLoggedIn() {
     if (localStorage.getItem(this.tokenId)) {
       return true;

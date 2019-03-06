@@ -18,6 +18,9 @@ import { BrandDetailsComponent } from './components/auth/register/brand-details/
 import { BrandDetailLoginComponent } from './components/auth/register/brand-detail-login/brand-detail-login.component';
 import { RoutingState } from './routingState';
 import { BrandDetailImageComponent } from './components/auth/register/brand-detail-image/brand-detail-image.component';
+import { ItemsComponent } from './components/main/items/items.component';
+import { ItemUploadComponent } from './components/main/item-upload/item-upload.component';
+
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { BrandDetailImageComponent } from './components/auth/register/brand-deta
     BrandDetailsComponent,
     BrandDetailLoginComponent,
     ResendDialogComponent,
-    BrandDetailImageComponent
+    BrandDetailImageComponent,
+    ItemsComponent,
+    ItemUploadComponent
   ],
   imports: [
     BrowserModule,

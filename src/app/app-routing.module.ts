@@ -9,6 +9,9 @@ import { CreateBrandComponent } from './components/auth/register/create-brand/cr
 import { BrandDetailsComponent } from './components/auth/register/brand-details/brand-details.component';
 import { BrandDetailLoginComponent } from './components/auth/register/brand-detail-login/brand-detail-login.component';
 import { BrandDetailImageComponent } from './components/auth/register/brand-detail-image/brand-detail-image.component';
+import { RedirectGuard } from './guards/redirect.guard';
+import { ItemsComponent } from './components/main/items/items.component';
+import { ItemUploadComponent } from './components/main/item-upload/item-upload.component';
 
 const routes: Routes = [
   { path: 'signIn', component: LoginComponent },
@@ -19,8 +22,11 @@ const routes: Routes = [
     { path: 'brandLogin', component: BrandDetailLoginComponent },
     { path: 'brandImage', component: BrandDetailImageComponent }
   ] },
-  { path: '', component: HomeComponent, },
-  { path: 'main', component: MainComponent, canActivate: [AuthGuard] }
+  { path: '', component: HomeComponent, canActivate: [RedirectGuard] },
+  { path: 'main', component: MainComponent, canActivate: [AuthGuard], children: [
+    { path: 'items', component: ItemsComponent },
+    { path: 'item-upload', component: ItemUploadComponent }
+  ] }
 ];
 
 @NgModule({
