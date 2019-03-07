@@ -10,8 +10,8 @@ export class AuthService {
   public readonly isTest = environment.production;
   public readonly apiUrl = environment.apiUrl;
   public readonly baseUrl = environment.baseUrl;
-  private token: any;
-  private tokenId: string = 'loggedUser';
+  public token: any;
+  public tokenId: string = 'loggedUser';
   public httpOptions: any;
 
   constructor(private http: HttpClient) {
@@ -20,7 +20,9 @@ export class AuthService {
         'Content-Type': 'application/json'
       })
     };
-    console.log(this.apiUrl);
+    if(localStorage.getItem(this.tokenId)) {
+      this.token = localStorage.getItem(this.tokenId)['token'];
+    }
   }
 
   getToken() {

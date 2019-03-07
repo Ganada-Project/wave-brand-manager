@@ -7,6 +7,7 @@ import { ItemFeaturesService } from 'src/app/services/item-features.service';
   styleUrls: ['./item-upload.component.scss']
 })
 export class ItemUploadComponent implements OnInit {
+  postImg: any;
   public item: any = {
     "name":"",
     "price": null,
@@ -15,7 +16,7 @@ export class ItemUploadComponent implements OnInit {
     "category3":-1,
     "sex":-1,
     "elasticity":1,
-    "quality":1,
+    "quality_arr":[],
     "thickness":1,
     "texture":1,
     "lining":1,
@@ -52,11 +53,11 @@ export class ItemUploadComponent implements OnInit {
       console.log(err);
     });
 
-    itemFeature.getCategories(2, this.item.category1).subscribe(res => {
-      this.classes.category2.categories = res['category2'];
-    }, err => {
-      console.log(err);
-    });
+    // itemFeature.getCategories(2, this.item.category1).subscribe(res => {
+    //   this.classes.category2.categories = res['category2'];
+    // }, err => {
+    //   console.log(err);
+    // });
 
   }
 
@@ -71,16 +72,38 @@ export class ItemUploadComponent implements OnInit {
     })
   }
 
-  onChangeCat(num) {
-    
-  }
-
-  updateCategory(num) {
-    this.itemFeature.getCategories(num, this.classes[`category${num}`]).subscribe(res => {
-      this.classes[`category${num+1}`].categories = res[`category${num+1}`];
+  updateCategory(num, cat) {
+    console.log(cat);
+    this.itemFeature.getCategories(num, cat).subscribe(res => {
+      console.log(res);
+      this.classes[`category${num}`].categories = res[`category${num}`];
     }, err => {
       console.log(err);
     });
   }
+
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = (e) => {
+        this.postImg = reader.result;
+        this.item['images'].push(this.postImg);
+        // console.log(reader.result);
+      }
+    };
+  }
+
+  upload() {
+    console.log(this.item)
+    this.itemFeature.upload(this.item).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    })
+  }
+
+  
 
 }

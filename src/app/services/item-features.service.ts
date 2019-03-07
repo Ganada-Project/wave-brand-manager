@@ -13,13 +13,16 @@ export class ItemFeaturesService {
   public readonly apiUrl = environment.apiUrl;
   public readonly baseUrl = environment.baseUrl;
   public token: any;
-  public httpOptions: any;
+  private httpOptions: any;
 
   constructor(private http: HttpClient, private auth: AuthService) {
-    this.token = auth.getToken();
+    this.token = JSON.parse(localStorage.getItem("loggedUser"));
+    
+    
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': this.token['token']
       })
     };
   }
@@ -29,7 +32,24 @@ export class ItemFeaturesService {
     if(category) {
       url = url + `/${category}`;
     }
-    this.httpOptions.headers['x-access-token'] = this.token;
     return this.http.get(url, this.httpOptions);
+  }
+
+  upload(item:any) {
+    console.log(this.token['token']);
+    let url = this.apiUrl + `/item`;
+    let headers = new HttpHeaders();
+    headers['Content-Type'] = 'application/json';
+    headers['x-access-token'] = this.token['token'];
+
+
+    const httpHeaders = new HttpHeaders ({
+      'Content-Type': 'application/json',
+      'x-access-token': this.token['token']
+    });
+    console.log(httpHeaders);
+    console.log(headers);
+    // this.httpOptions.headers['x-access-token'] = this.token['token'];
+    return this.http.post(url, item, this.httpOptions);
   }
 }
