@@ -38,18 +38,11 @@ export class ItemFeaturesService {
   upload(item:any) {
     console.log(this.token['token']);
     let url = this.apiUrl + `/item`;
-    let headers = new HttpHeaders();
-    headers['Content-Type'] = 'application/json';
-    headers['x-access-token'] = this.token['token'];
-
-
-    const httpHeaders = new HttpHeaders ({
-      'Content-Type': 'application/json',
-      'x-access-token': this.token['token']
-    });
-    console.log(httpHeaders);
-    console.log(headers);
-    // this.httpOptions.headers['x-access-token'] = this.token['token'];
     return this.http.post(url, item, this.httpOptions);
+  }
+
+  getQualities() {
+    let url = this.apiUrl + `/feature/quality`;
+    return this.http.get(url, this.httpOptions);
   }
 }

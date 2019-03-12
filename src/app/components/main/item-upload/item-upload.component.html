@@ -67,9 +67,6 @@
           <p>{{classes.category2.title}}</p>
         </div>
         <div class="col-10">
-          <!-- <input type="text" [(ngModel)]="item.category2" class="form-control"
-            placeholder="{{classes.category2.title}}"> -->
-
           <div class="form-item">
             <select class="custom-select" name="select-cat2" id="select-cat2"
               (change)="updateCategory(3, item.category2)" [(ngModel)]="item.category2" required>
@@ -84,11 +81,7 @@
           <p>{{classes.category3.title}}</p>
         </div>
         <div class="col-10">
-          <!-- <input type="text" [(ngModel)]="item.category3" class="form-control"
-            placeholder="{{classes.category3.title}}"> -->
           <select class="custom-select" name="select-cat3" id="select-cat3" [(ngModel)]="item.category3" required>
-            <!-- <option value="0" disabled selected hidden> 어떤 성별을 위한 상품인가요?</option>
-            <option *ngFor="let item of classes.sex.categories" ngValue="item.id">{{item.name}}</option> -->
             <option value="-1" disabled="true" hidden>카테고리 3</option>
             <option *ngFor="let item of classes.category3.categories" [value]="item.id">{{item.name}}</option>
           </select>
@@ -107,7 +100,8 @@
           <p>{{classes.thickness.title}}</p>
         </div>
         <div class="col-10">
-          <input type="text" [(ngModel)]="item.thickness" class="form-control" placeholder="{{classes.style.title}}">
+          <input type="text" [(ngModel)]="item.thickness" class="form-control"
+            placeholder="{{classes.thickness.title}}">
         </div>
       </div>
       <div class="row">
@@ -115,7 +109,8 @@
           <p>{{classes.elasticity.title}}</p>
         </div>
         <div class="col-10">
-          <input type="text" [(ngModel)]="item.elasticity" class="form-control" placeholder="{{classes.style.title}}">
+          <input type="text" [(ngModel)]="item.elasticity" class="form-control"
+            placeholder="{{classes.elasticity.title}}">
         </div>
       </div>
       <div class="row">
@@ -123,7 +118,7 @@
           <p>{{classes.texture.title}}</p>
         </div>
         <div class="col-10">
-          <input type="text" [(ngModel)]="item.texture" class="form-control" placeholder="{{classes.style.title}}">
+          <input type="text" [(ngModel)]="item.texture" class="form-control" placeholder="{{classes.texture.title}}">
         </div>
       </div>
       <div class="row">
@@ -131,7 +126,7 @@
           <p>{{classes.lining.title}}</p>
         </div>
         <div class="col-10">
-          <input type="text" [(ngModel)]="item.lining" class="form-control" placeholder="{{classes.style.title}}">
+          <input type="text" [(ngModel)]="item.lining" class="form-control" placeholder="{{classes.lining.title}}">
         </div>
       </div>
       <div class="row">
@@ -139,15 +134,52 @@
           <p>{{classes.opacity.title}}</p>
         </div>
         <div class="col-10">
-          <input type="text" [(ngModel)]="item.opacity" class="form-control" placeholder="{{classes.style.title}}">
+          <input type="text" [(ngModel)]="item.opacity" class="form-control" placeholder="{{classes.opacity.title}}">
         </div>
       </div>
     </div>
     <div class="col-4">
-      <div class="row"></div>
-      <div class="row"></div>
-      <div class="row"></div>
-      <div *ngFor="let qual of qualities" class="row"></div>
+      <div class="row">
+        <div class="col-2">
+          <p>{{classes.season.title}}</p>
+        </div>
+        <div class="col-10">
+          <input type="text" [(ngModel)]="item.season" class="form-control" placeholder="{{classes.season.title}}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <p>{{classes.country.title}}</p>
+        </div>
+        <div class="col-10">
+          <input type="text" [(ngModel)]="item.opacity" class="form-control" placeholder="{{classes.opacity.title}}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <p>{{classes.id.title}}</p>
+        </div>
+        <div class="col-10">
+          <input type="text" [(ngModel)]="item.id" class="form-control" placeholder="{{classes.id.title}}">
+        </div>
+      </div>
+      <div *ngFor="let qual of qualities; let i = index" class="row">
+        <div class="col-2">
+          <p>{{classes.quality.title}}{{i+1}}</p>
+        </div>
+        <div class="col-6">
+          <select class="custom-select" name="select-cat3" id="select-cat3" [(ngModel)]="qual.id" required>
+            <option value="-1" disabled="true" hidden>재질</option>
+            <option *ngFor="let item of classes.quality.categories" [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <input type="text" [(ngModel)]="qual.value" class="form-control" placeholder="{{classes.quality.title2}}">
+        </div>
+      </div>
+      <div class="row">
+        <button (click)="addQuality()">add</button>
+      </div>
     </div>
 
 

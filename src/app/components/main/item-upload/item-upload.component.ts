@@ -9,56 +9,60 @@ import { ItemFeaturesService } from 'src/app/services/item-features.service';
 export class ItemUploadComponent implements OnInit {
   postImg: any;
   public item: any = {
-    "name":"",
+    "name": "",
     "price": null,
-    "category1":-1,
-    "category2":-1,
-    "category3":-1,
-    "sex":-1,
-    "elasticity":1,
-    "quality_arr":[],
-    "thickness":1,
-    "texture":1,
-    "lining":1,
-    "opacity":1,
-    "season":1,
-    "style":1,
-    "remain":1,
-    "images":[]
+    "category1": -1,
+    "category2": -1,
+    "category3": -1,
+    "sex": -1,
+    "elasticity": null,
+    "quality_arr": [],
+    "thickness": null,
+    "texture": null,
+    "lining": null,
+    "opacity": null,
+    "season": null,
+    "style": null,
+    "remain": null,
+    "country": null,
+    "images": []
   };
   public classes: any = {
-    name : { title: '상품명', cateogory: 'name', title2: '추가사항 (선택사항)' },
-    price : { title: '판매가격', additional: 2, title2: '시즌', class: 'season' },
-    sex: { title: '성별', categories: [{name: '여성', id: 1}, {name: '남성', id: 2}, {name: '유니섹스', id: 3}], categoryId: [] },
+    name: { title: '상품명', cateogory: 'name', title2: '추가사항 (선택사항)' },
+    price: { title: '판매가격', additional: 2, title2: '시즌', class: 'season' },
+    sex: { title: '성별', categories: [{ name: '여성', id: 1 }, { name: '남성', id: 2 }, { name: '유니섹스', id: 3 }], categoryId: [] },
     category1: { title: '카테고리1', categories: [] },
     category2: { title: '카테고리2', categories: [], categoryId: [] },
     category3: { title: '카테고리3', categories: [], categoryId: [] },
     elasticity: { title: '신축성', categories: [], categoryId: [] },
-    quality: { title: '재질' },
+    quality: { title: '재질', title2: '(숫자)', categories: [] },
     thickness: { title: '두께감', categories: [], categoryId: [] },
     texture: { title: '촉감', categories: [], categoryId: [] },
     lining: { title: '안감', categories: [], categoryId: [] },
     opacity: { title: '비침', categories: [], categoryId: [] },
     season: { title: '시즌', categories: [], categoryId: [] },
     style: { title: '스타일', categories: [], categoryId: [] },
+    country: { title: '제조국', categories: [], categoryId: [] },
     id: { title: '품번' }
   };
+
+  qualities = [
+    { id: null, value: null }
+  ];
 
 
 
   constructor(private itemFeature: ItemFeaturesService) {
     itemFeature.getCategories(1).subscribe(res => {
+      console.log(res);
       this.classes.category1.categories = res['category1'];
+      itemFeature.getQualities().subscribe(qual => {
+        console.log(qual['qualities']);
+        this.classes.quality.categories = qual['qualities'];
+      })
     }, err => {
       console.log(err);
     });
-
-    // itemFeature.getCategories(2, this.item.category1).subscribe(res => {
-    //   this.classes.category2.categories = res['category2'];
-    // }, err => {
-    //   console.log(err);
-    // });
-
   }
 
   ngOnInit() {
@@ -66,7 +70,7 @@ export class ItemUploadComponent implements OnInit {
 
   selectedSex() {
     this.itemFeature.getCategories(1).subscribe(res => {
-      this.classes['category1'].categories=  res['category1'];
+      this.classes['category1'].categories = res['category1'];
     }, err => {
       console.log(err);
     })
@@ -84,7 +88,7 @@ export class ItemUploadComponent implements OnInit {
 
   onFileChange(event: any) {
     const reader = new FileReader();
-    if(event.target.files && event.target.files.length > 0) {
+    if (event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = (e) => {
@@ -104,6 +108,10 @@ export class ItemUploadComponent implements OnInit {
     })
   }
 
-  
+  addQuality() {
+    this.qualities.push({id: null, value: null });
+  }
+
+
 
 }
