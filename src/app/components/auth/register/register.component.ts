@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.title.setTitle('register');
+    this.title.setTitle('등록');
     
   }
 

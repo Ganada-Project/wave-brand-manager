@@ -52,6 +52,10 @@ export class AuthService {
     );
   }
 
+  logout() {
+    localStorage.removeItem(this.tokenId);
+  }
+
   signUp(brandInfo) {
     if(!this.isTest) {
       console.log(brandInfo);

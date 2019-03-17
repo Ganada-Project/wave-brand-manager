@@ -10,7 +10,7 @@ export class RedirectGuard implements CanActivate  {
 
   canActivate() {
     if (localStorage.getItem('loggedUser')) {
-      this.router.navigate(['/main']);
+      // this.router.navigate(['/main']);
       return true;
       
     } else {

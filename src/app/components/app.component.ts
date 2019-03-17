@@ -11,6 +11,7 @@ export class AppComponent {
 
   public loggedIn: boolean = false;
   
-  constructor(public authService: AuthService, public queries: QueriesService) { }
-
+  constructor(public authService: AuthService, public queries: QueriesService) { 
+    this.loggedIn = authService.isLoggedIn();
+  }
 }

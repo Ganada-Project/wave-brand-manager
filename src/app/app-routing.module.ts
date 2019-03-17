@@ -22,7 +22,7 @@ const routes: Routes = [
     { path: 'brandLogin', component: BrandDetailLoginComponent },
     { path: 'brandImage', component: BrandDetailImageComponent }
   ] },
-  { path: '', component: HomeComponent, canActivate: [RedirectGuard] },
+  { path: '', component: HomeComponent },
   { path: 'main', component: MainComponent, canActivate: [AuthGuard], children: [
     { path: 'items', component: ItemsComponent },
     { path: 'item-upload', component: ItemUploadComponent }
