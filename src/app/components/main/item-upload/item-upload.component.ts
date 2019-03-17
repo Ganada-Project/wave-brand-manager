@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemFeaturesService } from 'src/app/services/item-features.service';
+import { getQueryPredicate } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-item-upload',

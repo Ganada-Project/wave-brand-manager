@@ -12,6 +12,16 @@ export class AppComponent {
   public loggedIn: boolean = false;
   
   constructor(public authService: AuthService, public queries: QueriesService) { 
-    this.loggedIn = authService.isLoggedIn();
+    
+  }
+
+  ngOnInit() {
+    this.loggedIn = this.authService.isLoggedIn();
+  }
+
+  ngOnChanges(): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    this.loggedIn = this.authService.isLoggedIn();
   }
 }
