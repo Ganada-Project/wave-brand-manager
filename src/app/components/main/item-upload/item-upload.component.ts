@@ -40,7 +40,7 @@ export class ItemUploadComponent implements OnInit {
     thickness: { title: '두께감', categories: [], categoryId: [] },
     texture: { title: '촉감', categories: [], categoryId: [] },
     lining: { title: '안감', categories: [], categoryId: [] },
-    opacity: { title: '비침', categories: [], categoryId: [] },
+    opacity: { title: '비침1', categories: [], categoryId: [] },
     season: { title: '시즌', categories: [], categoryId: [] },
     style: { title: '스타일', categories: [], categoryId: [] },
     country: { title: '제조국', categories: [], categoryId: [] },
