@@ -23,7 +23,11 @@ export class MainComponent implements OnInit {
     const { url } = this.router;
     const mainTypeArr = url.split("/");
     const targetType = mainTypeArr[2];
-    this.selectedType = targetType;
+    if (!targetType) {
+      this.selectedType = "dashboard";
+    } else {
+      this.selectedType = targetType;
+    }
   }
 
   onClickNavItem({ type }) {

@@ -2,7 +2,7 @@ export const navConfigs = [
   {
     title: "대시보드",
     value: "dashboard",
-    route: "dashboard"
+    route: ""
   },
   {
     title: "판매",

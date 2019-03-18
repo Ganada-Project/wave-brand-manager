@@ -34,7 +34,7 @@ const routes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: "dashboard", component: DashboardComponent },
+      { path: "", component: DashboardComponent },
       { path: "sell", component: SellComponent },
       { path: "items", component: ItemsComponent },
       { path: "item-upload", component: ItemUploadComponent }
