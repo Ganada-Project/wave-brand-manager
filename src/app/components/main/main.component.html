@@ -1,69 +1,36 @@
-<div class="container main">
-  <div class="row main-row">
-    <div class="tabs col-2">
-
-      <div class="row">
-        <div class="col-12">
-            <img src="assets/img/colored_logo.png" alt="wav" id="main-logo" height="50">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 alarm">
-          <a>알림 센터 (4)</a>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 hair-line">
-          <hr>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <a routerLink="/main">홈</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a routerLink="/main">판매</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a routerLink="items">상품</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a routerLink="/main">고객</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a routerLink="/main">포스트 관리</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a routerLink="/main">광고 활동</a>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <a routerLink="/main">등급 ({{level}})</a>
-        </div>
-      </div>
-
+<div class="main">
+  <div class="main__leftNavigation">
+    <div class="main__leftNavigation__header">
+      <img
+        src="assets/img/colored_logo.png"
+        alt="wav"
+        id="main-logo"
+        height="50"
+      />
     </div>
-    <div class="main-page col-8">
-      <router-outlet></router-outlet>
+    <div class="main__leftNavigation__headerTextWrapper">
+      <a>알림 센터 (4)</a>
     </div>
+    <hr />
+    <div class="main__leftNavigation__bodyWrapper">
+      <div
+        class="main__leftNavigation__bodyWrapper__navItem"
+        routerLink="{{ navConfig.route }}"
+        *ngFor="let navConfig of navConfigs"
+        [class.selected]="navConfig.value === selectedType"
+        (click)="onClickNavItem({ type: navConfig.value })"
+      >
+        <div>
+          {{ navConfig.title }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main__content">
+    <router-outlet></router-outlet>
+  </div>
 
-    <div class="col-2 logout-tab">
-      <a (click)="logout()">로그아웃</a>
-    </div>
+  <div class="main__rightNavigation">
+    <a (click)="logout()">로그아웃</a>
   </div>
 </div>
