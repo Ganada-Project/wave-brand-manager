@@ -11,7 +11,6 @@ import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/auth/login/login.component";
 import { RegisterComponent } from "./components/auth/register/register.component";
 import { NavigationComponent } from "./components/navigation/navigation.component";
-import { MainComponent } from "./components/main/main.component";
 import {
   SmsComponent,
   ResendDialogComponent
@@ -21,11 +20,11 @@ import { BrandDetailsComponent } from "./components/auth/register/brand-details/
 import { BrandDetailLoginComponent } from "./components/auth/register/brand-detail-login/brand-detail-login.component";
 import { RoutingState } from "./routingState";
 import { BrandDetailImageComponent } from "./components/auth/register/brand-detail-image/brand-detail-image.component";
-import { ItemsComponent } from "./components/main/items/items.component";
-import { ItemUploadComponent } from "./components/main/item-upload/item-upload.component";
-import { DashboardComponent } from "./components/main/dashboard/dashboard.component";
-import { SellComponent } from './components/main/sell/sell.component';
-import { ItemListComponent } from './components/main/items/item-list/item-list.component';
+import { ItemsComponent } from "./components/items/items.component";
+import { ItemUploadComponent } from "./components/item-upload/item-upload.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { SellComponent } from "./components/sell/sell.component";
+import { ItemListComponent } from "./components/items/item-list/item-list.component";
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { ItemListComponent } from './components/main/items/item-list/item-list.c
     LoginComponent,
     RegisterComponent,
     NavigationComponent,
-    MainComponent,
     SmsComponent,
     CreateBrandComponent,
     BrandDetailsComponent,
