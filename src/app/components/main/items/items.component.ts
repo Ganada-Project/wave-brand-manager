@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-items",
@@ -8,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
 export class ItemsComponent implements OnInit {
   public balance: number = 365065455;
 
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit() {
     console.log("item-list");

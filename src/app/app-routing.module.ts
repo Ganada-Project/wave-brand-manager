@@ -11,6 +11,7 @@ import { BrandDetailLoginComponent } from "./components/auth/register/brand-deta
 import { BrandDetailImageComponent } from "./components/auth/register/brand-detail-image/brand-detail-image.component";
 import { RedirectGuard } from "./guards/redirect.guard";
 import { ItemsComponent } from "./components/main/items/items.component";
+import { ItemListComponent } from "./components/main/items/item-list/item-list.component";
 import { ItemUploadComponent } from "./components/main/item-upload/item-upload.component";
 import { DashboardComponent } from "./components/main/dashboard/dashboard.component";
 import { SellComponent } from "./components/main/sell/sell.component";
@@ -32,13 +33,26 @@ const routes: Routes = [
   {
     path: "main",
     component: MainComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "sell",
+    component: SellComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "items",
+    component: ItemsComponent,
     children: [
-      { path: "", component: DashboardComponent },
-      { path: "sell", component: SellComponent },
-      { path: "items", component: ItemsComponent },
-      { path: "item-upload", component: ItemUploadComponent }
-    ]
+      { path: "", component: ItemListComponent },
+      { path: "upload", component: ItemUploadComponent }
+    ],
+    canActivate: [AuthGuard]
   }
 ];
 

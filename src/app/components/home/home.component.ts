@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     this.title.setTitle("home");
     const idToken = localStorage.getItem("loggedUser");
     if (idToken) {
-      this.router.navigate(["/main"]);
+      this.router.navigate(["/dashboard"]);
     }
   }
 }
