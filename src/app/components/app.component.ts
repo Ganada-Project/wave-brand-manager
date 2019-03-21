@@ -10,7 +10,6 @@ import { navConfigs } from "./navConfig";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  public loggedIn: boolean = false;
   public selectedType: string;
   public navConfigs: any = navConfigs;
 
@@ -22,7 +21,10 @@ export class AppComponent {
 
   ngOnInit() {
     this.checkIsSelectedByUrl();
-    this.loggedIn = this.authService.isLoggedIn();
+  }
+
+  checkLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 
   checkIsSelectedByUrl() {
@@ -44,13 +46,13 @@ export class AppComponent {
     console.log("onChange");
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
-    this.loggedIn = this.authService.isLoggedIn();
+    // this.loggedIn = this.authService.isLoggedIn();
   }
 
   ngDoCheck() {}
 
   ngAfterViewInit() {
     console.log("viewinit");
-    this.loggedIn = this.authService.isLoggedIn();
+    // this.loggedIn = this.authService.isLoggedIn();
   }
 }

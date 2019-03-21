@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <nav class="navbar navbar-light justify-content-between" *ngIf="!loggedIn">
+  <nav class="navbar navbar-light justify-content-between" *ngIf="!checkLoggedIn()">
     <a [routerLink]="['/']" class="navbar-brand"
       ><img src="assets/img/main_logo.png" alt="wav" id="main-logo"
     /></a>
@@ -13,10 +13,12 @@
       >브랜드 계정 로그인</a
     >
   </nav>
-  <router-outlet></router-outlet>
+  <div *ngIf="!checkLoggedIn()">
+    <router-outlet></router-outlet>
+  </div>
 
   <!-- <app-home *ngIf="!loggedIn"></app-home> -->
-  <div class="main" *ngIf="loggedIn">
+  <div class="main" *ngIf="checkLoggedIn()">
     <div class="main__leftNavigation">
       <div class="main__leftNavigation__header">
         <img
