@@ -1,19 +1,78 @@
-@import "../../variables.scss";
+@import "/../../variables.scss";
+
+.selected {
+  background-color: $main-color-hue;
+}
 
 nav {
-    background: none;
-    margin: auto;
-    width: $main-page-width;
-    #main-logo {
-        height: 2.3rem;
-    }
+  background: none;
+  margin: auto;
+  width: $main-page-width;
+  #main-logo {
+    height: 2.3rem;
+  }
 
-    a:link {color: black;}      /* unvisited link */
-    a:visited {color: black;}   /* visited link */
-    a:hover {color: black;}     /* mouse over link */
-    a:active {color: black;}    /* selected link */
+  a:link {
+    color: black;
+  } /* unvisited link */
+  a:visited {
+    color: black;
+  } /* visited link */
+  a:hover {
+    color: black;
+  } /* mouse over link */
+  a:active {
+    color: black;
+  } /* selected link */
 
-    .brand-login-btn {
-        font-weight: 600;
+  .brand-login-btn {
+    font-weight: 600;
+  }
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  //   margin-top: 30px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  color: $regular-color;
+
+  &__leftNavigation {
+    flex: 1.2;
+    padding: 2%;
+
+    &__bodyWrapper {
+      &__navItem {
+        display: flex;
+        outline: none;
+        align-items: center;
+        padding-left: 20px;
+        height: 50px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        cursor: pointer;
+        :last-child {
+          margin-bottom: 0;
+        }
+      }
     }
+  }
+
+  &__content {
+    flex: 4;
+    border: 1px solid chocolate;
+  }
+
+  &__rightNavigation {
+    flex: 1;
+    text-align: end;
+  }
 }
