@@ -34,6 +34,18 @@ export class AppComponent {
     this.selectedType = targetType;
   }
 
+  clickDebug() {
+    console.log('button clicked!');
+    console.log(this.checkLoggedIn());
+  }
+
+  // uncheck registering boolean
+  notRegistering() {
+    if (this.queries.registering) {
+      this.queries.isRegister();
+    }
+  }
+
   onClickNavItem({ type }) {
     this.selectedType = type;
   }
@@ -46,13 +58,13 @@ export class AppComponent {
     console.log("onChange");
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
-    // this.loggedIn = this.authService.isLoggedIn();
+    
   }
 
   ngDoCheck() {}
 
   ngAfterViewInit() {
     console.log("viewinit");
-    // this.loggedIn = this.authService.isLoggedIn();
+    
   }
 }

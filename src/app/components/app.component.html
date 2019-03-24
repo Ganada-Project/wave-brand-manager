@@ -1,6 +1,6 @@
 <div class="wrapper">
   <nav class="navbar navbar-light justify-content-between" *ngIf="!checkLoggedIn()">
-    <a [routerLink]="['/']" class="navbar-brand"
+    <a [routerLink]="['/']" class="navbar-brand" (click)="notRegistering()"
       ><img src="assets/img/main_logo.png" alt="wav" id="main-logo"
     /></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -9,7 +9,8 @@
     <a
       *ngIf="!queries.registering"
       class="nav-link brand-login-btn"
-      [routerLink]="['/signIn']"
+      routerLink="/signIn"
+      (click)="clickDebug()"
       >브랜드 계정 로그인</a
     >
   </nav>
