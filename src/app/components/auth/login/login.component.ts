@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     private queries: QueriesService,
     private router: Router
   ) {
+    console.log('login component');
     this.User = {
       email: "",
       password: ""

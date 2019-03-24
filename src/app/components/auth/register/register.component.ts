@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { LocationStrategy } from '@angular/common';
+import { QueriesService } from 'src/app/services/queries.service';
 
 @Component({
   selector: 'app-register',
@@ -8,8 +10,12 @@ import { Title } from '@angular/platform-browser';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private title: Title) {
-
+  constructor(private title: Title, location: LocationStrategy, private queries: QueriesService) {
+    location.onPopState(() => {
+      if (queries.registering) {
+        queries.isRegister();
+      }
+    })
   }
 
   ngOnInit() {

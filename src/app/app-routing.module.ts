@@ -14,6 +14,7 @@ import { ItemListComponent } from "./components/items/item-list/item-list.compon
 import { ItemUploadComponent } from "./components/item-upload/item-upload.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { SellComponent } from "./components/sell/sell.component";
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   { path: "signIn", component: LoginComponent },
@@ -28,26 +29,27 @@ const routes: Routes = [
       { path: "brandImage", component: BrandDetailImageComponent }
     ]
   },
-  { path: "", component: HomeComponent },
-  {
-    path: "dashboard",
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: "sell",
-    component: SellComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: "items",
-    component: ItemsComponent,
-    children: [
-      { path: "", component: ItemListComponent },
-      { path: "upload", component: ItemUploadComponent }
-    ],
-    canActivate: [AuthGuard]
-  }
+  { path: "home", component: HomeComponent },
+  { path: "", component: MainComponent, canActivate: [AuthGuard], children: [
+    {
+      path: "dashboard",
+      component: DashboardComponent,
+      
+    },
+    {
+      path: "sell",
+      component: SellComponent
+    },
+    {
+      path: "items",
+      component: ItemsComponent,
+      children: [
+        { path: "", component: ItemListComponent },
+        { path: "upload", component: ItemUploadComponent }
+      ],
+    }
+  ] }
+  
 ];
 
 @NgModule({

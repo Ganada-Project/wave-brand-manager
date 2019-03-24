@@ -2,16 +2,16 @@ export const navConfigs = [
   {
     title: "대시보드",
     value: "dashboard",
-    route: ""
+    route: "/dashboard"
   },
   {
     title: "판매",
     value: "sell",
-    route: "sell"
+    route: "/sell"
   },
   {
     title: "상품",
-    route: "items",
+    route: "/items",
     value: "items"
   }
   // {

@@ -22,11 +22,7 @@ export class SmsComponent implements OnInit {
   private interval: any;
 
   constructor(private auth: AuthService, private queries: QueriesService, private router: Router, private dialog: MatDialog, location: LocationStrategy) { 
-    location.onPopState(() => {
-      if (queries.registering) {
-        queries.isRegister();
-      }
-    })
+    
   }
 
   ngOnInit() {

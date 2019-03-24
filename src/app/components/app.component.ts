@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 import { QueriesService } from "../services/queries.service";
 import { Router } from "@angular/router";
-import { navConfigs } from "./navConfig";
 
 @Component({
   selector: "app-root",
@@ -11,7 +10,6 @@ import { navConfigs } from "./navConfig";
 })
 export class AppComponent {
   public selectedType: string;
-  public navConfigs: any = navConfigs;
 
   constructor(
     public authService: AuthService,
@@ -44,27 +42,5 @@ export class AppComponent {
     if (this.queries.registering) {
       this.queries.isRegister();
     }
-  }
-
-  onClickNavItem({ type }) {
-    this.selectedType = type;
-  }
-
-  logout() {
-    this.authService.logout();
-  }
-
-  ngOnChanges(): void {
-    console.log("onChange");
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    
-  }
-
-  ngDoCheck() {}
-
-  ngAfterViewInit() {
-    console.log("viewinit");
-    
   }
 }

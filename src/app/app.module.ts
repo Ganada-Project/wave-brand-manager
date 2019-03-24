@@ -25,6 +25,7 @@ import { ItemUploadComponent } from "./components/item-upload/item-upload.compon
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { SellComponent } from "./components/sell/sell.component";
 import { ItemListComponent } from "./components/items/item-list/item-list.component";
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ItemListComponent } from "./components/items/item-list/item-list.compon
     ItemUploadComponent,
     DashboardComponent,
     SellComponent,
-    ItemListComponent
+    ItemListComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

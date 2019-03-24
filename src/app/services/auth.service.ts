@@ -57,7 +57,8 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("loggedUser");
-    this.router.navigate(["/"]);
+    this.router.navigate(["/home"]);
+    console.log(this.isLoggedIn());
   }
 
   signUp(brandInfo) {

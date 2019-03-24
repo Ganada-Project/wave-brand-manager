@@ -9,50 +9,11 @@
     <a
       *ngIf="!queries.registering"
       class="nav-link brand-login-btn"
-      routerLink="/signIn"
+      routerLink="signIn"
       (click)="clickDebug()"
       >브랜드 계정 로그인</a
     >
   </nav>
-  <div *ngIf="!checkLoggedIn()">
-    <router-outlet></router-outlet>
-  </div>
-
-  <!-- <app-home *ngIf="!loggedIn"></app-home> -->
-  <div class="main" *ngIf="checkLoggedIn()">
-    <div class="main__leftNavigation">
-      <div class="main__leftNavigation__header">
-        <img
-          src="assets/img/colored_logo.png"
-          alt="wav"
-          id="main-logo"
-          height="50"
-        />
-      </div>
-      <div class="main__leftNavigation__headerTextWrapper">
-        <a>알림 센터 (4)</a>
-      </div>
-      <hr />
-      <div class="main__leftNavigation__bodyWrapper">
-        <div
-          class="main__leftNavigation__bodyWrapper__navItem"
-          routerLink="{{ navConfig.route }}"
-          *ngFor="let navConfig of navConfigs"
-          [class.selected]="navConfig.value === selectedType"
-          (click)="onClickNavItem({ type: navConfig.value })"
-        >
-          <div>
-            {{ navConfig.title }}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="main__content">
-      <router-outlet></router-outlet>
-    </div>
-
-    <div class="main__rightNavigation">
-      <a (click)="logout()">로그아웃</a>
-    </div>
-  </div>
+  
+  <router-outlet></router-outlet>
 </div>
