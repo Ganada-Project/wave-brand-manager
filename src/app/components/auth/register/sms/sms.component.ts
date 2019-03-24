@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { QueriesService } from 'src/app/services/queries.service';
 import { MatDialogRef, MatDialog } from '@angular/material';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-sms',
@@ -20,7 +21,13 @@ export class SmsComponent implements OnInit {
   public timeLeft: number = 1;
   private interval: any;
 
-  constructor(private auth: AuthService, private queries: QueriesService, private router: Router, private dialog: MatDialog) { }
+  constructor(private auth: AuthService, private queries: QueriesService, private router: Router, private dialog: MatDialog, location: LocationStrategy) { 
+    location.onPopState(() => {
+      if (queries.registering) {
+        queries.isRegister();
+      }
+    })
+  }
 
   ngOnInit() {
   }
