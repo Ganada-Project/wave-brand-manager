@@ -9,7 +9,6 @@ import { Router } from "@angular/router";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  public selectedType: string;
 
   constructor(
     public authService: AuthService,
@@ -18,23 +17,10 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
-    this.checkIsSelectedByUrl();
   }
 
   checkLoggedIn() {
     return this.authService.isLoggedIn();
-  }
-
-  checkIsSelectedByUrl() {
-    const url = location.pathname;
-    const mainTypeArr = url.split("/");
-    const targetType = mainTypeArr[1];
-    this.selectedType = targetType;
-  }
-
-  clickDebug() {
-    console.log('button clicked!');
-    console.log(this.checkLoggedIn());
   }
 
   // uncheck registering boolean

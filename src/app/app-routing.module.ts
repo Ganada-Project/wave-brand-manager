@@ -17,7 +17,7 @@ import { SellComponent } from "./components/sell/sell.component";
 import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
-  { path: "signIn", component: LoginComponent },
+  { path: "signIn", component: LoginComponent, canActivate: [RedirectGuard] },
   {
     path: "register",
     component: RegisterComponent,
@@ -30,11 +30,16 @@ const routes: Routes = [
     ]
   },
   { path: "home", component: HomeComponent },
+  {
+    path:'',
+    redirectTo: 'dashboard',
+    pathMatch: 'full' 
+  },
   { path: "", component: MainComponent, canActivate: [AuthGuard], children: [
     {
       path: "dashboard",
       component: DashboardComponent,
-      
+      pathMatch: 'full'
     },
     {
       path: "sell",
